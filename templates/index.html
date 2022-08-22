@@ -1,37 +1,117 @@
 <!DOCTYPE html>
-<html >
-<!--From https://codepen.io/frytyler/pen/EGdtg-->
-<head>
-  <meta charset="UTF-8">
-  <title>ML API</title>
-  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-  
-</head>
+<html>
+  <!--From https://codepen.io/frytyler/pen/EGdtg-->
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dubizzle Bayut Case Study</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Pacifico"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Arimo"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Hind:300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300"
+      rel="stylesheet"
+      type="text/css"
+    />
 
-<body>
- <div class="login">
-	<h1>Predict Apartment Price</h1>
+    <style>
+      body {
+      }
+      input[type="text"],
+      select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
 
-     <!-- Main Input For Receiving Query to our ML -->
-    <form action="{{ url_for('predict')}}"method="post">
-    	<input type="text" name="neighbourhood" placeholder="Neighbourhood" required="required" />
-        <input type="text" name="size" placeholder="Size" required="required" />
-		<input type="text" name="bedrooms" placeholder="Bedrooms" required="required" />
-        <input type="text" name="bathrooms" placeholder="Bathrooms" required="required" />
-        <input type="text" name="building" placeholder="Building" required="required" />
+      .xbtn {
+        width: 100%;
+        background-color: #4caf50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
 
-        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
-    </form>
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
 
-   <br>
-   <br>
-   {{ prediction_text }}
+      div {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+      }
+      h1,
+      h2 {
+        text-align: center;
+      }
+    </style>
+  </head>
 
- </div>
+  <body>
+    <div class="nav"></div>
+    <div class="login" class="main">
+      <h1>Dubizzle Bayut</h1>
+      <h2>Apartment Price Prediction</h2>
 
+      <!-- Main Input For Receiving Query to our ML -->
+      <div style="text-align: center">
+        <form action="{{ url_for('predict')}}" method="post">
+          <input
+            type="text"
+            name="neighbourhood"
+            placeholder="Neighbourhood"
+            required="required"
+          />
+          <input
+            type="text"
+            name="size"
+            placeholder="Size"
+            required="required"
+          />
+          <input
+            type="text"
+            name="bedrooms"
+            placeholder="Bedrooms"
+            required="required"
+          />
+          <input
+            type="text"
+            name="bathrooms"
+            placeholder="Bathrooms"
+            required="required"
+          />
+          <input
+            type="text"
+            name="building"
+            placeholder="Building"
+            required="required"
+          />
 
-</body>
+          <button type="submit" class="xbtn">Predict</button>
+        </form>
+      </div>
+      <br />
+      <br />
+      {{ prediction_text }}
+    </div>
+  </body>
 </html>
